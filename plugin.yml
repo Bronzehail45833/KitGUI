@@ -1,0 +1,10 @@
+name: KitGUI
+author: ignatiosg#1030-XSlimeX
+api: [3.0.0, 4.0.0]
+main: kitgui\Main
+load: POSTWORLD
+
+commands:
+ kitgui:
+ permission: "open.kit" 
+ description: "opens the kit menu"
