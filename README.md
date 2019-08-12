@@ -1,2 +1,2 @@
 # KitGUI
-KitGUI is a kit plugin on a gui(chest inventory) NOT UI(USER INFERFACE) plugin for pocketmine mp
+KitGUI is a advanced kit system plugin on a gui for pocketmine mp
