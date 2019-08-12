@@ -26,3 +26,24 @@ use pocketmine\nbt\tag\StringTag;
 use kitgui\Main;
 
 class KitGUI extends Command implements Listener {
+
+    public function __construct(Main $plugin) {
+      parent::__construct("kitgui", "Opens the kit gui", "Usage: /kitgui", ["kitgui"]);
+   $this->setPermission('kitgui.open'); 
+    }
+
+    public function execute(CommandSender $sender, string $label, array $args) : bool
+    {
+    if(!$this->testPermission($sender)){
+			return true;
+     }
+
+     if ($sender instanceof Player) {
+      $this->sendKitGUIMenu($sender); //send the kitgui menu to the command sender
+      return true;
+    }
+     if ($sender instanceof ConsoleCommandSender) {
+     $sender->sendMessage("Run this command in-game!");
+     return true;
+  }
+ }
