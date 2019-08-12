@@ -1,0 +1,11 @@
+name: KitGUI
+authors: [ignatiosg#1030, Saxavlax001#6453](discord)
+api: [3.0.0, 4.0.0]
+main: kitgui\Main
+
+commands:
+ kitgui:
+  description: "opens the kitgui"
+  permission: "open.kitgui"
+  default: op
+  
