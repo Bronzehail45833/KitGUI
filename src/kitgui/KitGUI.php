@@ -29,7 +29,7 @@ class KitGUI extends Command implements Listener {
 
     public function __construct(Main $plugin) {
       parent::__construct("kitgui", "Opens the kit gui", "Usage: /kitgui", ["kitgui"]);
-   $this->setPermission('kitgui.open'); 
+   $this->setPermission('open.kitgui'); 
     }
 
     public function execute(CommandSender $sender, string $label, array $args) : bool
