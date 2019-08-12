@@ -13,7 +13,7 @@ class Main extends PluginBase {
     public function onEnable() : void
    {
     //kitgui
-    $this->getServer()->getCommandMap()->register("kitgui", new ShopGUI($this));
-    $this->getServer()->getPluginManager()->registerEvents(new ShopGUI($this), $this);
+    $this->getServer()->getCommandMap()->register("kitgui", new KitGUI($this));
+    $this->getServer()->getPluginManager()->registerEvents(new KitGUI($this), $this);
    }
  }
