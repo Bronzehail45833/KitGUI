@@ -47,3 +47,24 @@ class KitGUI extends Command implements Listener {
      return true;
   }
  }
+
+    public function closeInventory(Player $player) {
+        $block1 = Block::get(Block::AIR);
+        $block1->x = (int) $player->x - 1;
+        $block1->y = (int) $player->y - 2;
+        $block1->z = (int) $player->z - 2;
+        $block1->level = $player->getLevel();
+        $block1->level->sendBlocks([$player], [$block1]);
+        $block2 = Block::get(Block::AIR);
+        $block2->x = (int) $player->x - 2;
+        $block2->y = (int) $player->y - 2;
+        $block2->z = (int) $player->z - 1;
+        $block2->level = $player->getLevel();
+        $block2->level->sendBlocks([$player], [$block2]);
+        $block3 = Block::get(Block::AIR);
+        $block3->x = (int) $player->x - 2;
+        $block3->y = (int) $player->y - 1;
+        $block3->z = (int) $player->z - 2;
+        $block3->level = $player->getLevel();
+        $block3->level->sendBlocks([$player], [$block3]);
+    }	
