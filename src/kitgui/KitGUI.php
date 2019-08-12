@@ -68,3 +68,79 @@ class KitGUI extends Command implements Listener {
         $block3->level = $player->getLevel();
         $block3->level->sendBlocks([$player], [$block3]);
     }	
+
+    public function sendKitGUIMenu(Player $player) {
+        $nbt = new CompoundTag("", [new StringTag("id", Tile::CHEST), new StringTag("CustomName", "§l§eKit §cG§6U§bI §aMenu"), new IntTag("x", floor($player->x) - 1), new IntTag("y", floor($player->y) - 2), new IntTag("z", floor($player->z) - 2) ]);
+        /** @var Chest $tile */
+        $tile = Tile::createTile("Chest", $player->getLevel(), $nbt);
+        $block = Block::get(Block::CHEST);
+        $block->x = (int)$tile->x;
+        $block->y = (int)$tile->y;
+        $block->z = (int)$tile->z;
+        $block->level = $tile->getLevel();
+        $block->level->sendBlocks([$player], [$block]);
+        if ($tile instanceof Chest) {
+            // Items
+            $inv = $tile->getInventory();
+            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§6VIP §eKits")->setLore(["§eClick to select"]));
+            $inv->setItem(1,Item::get(288)->setCustomName("§bMVP §eKits")->setLore(["§eClick to select"]));
+        }
+        $player->addWindow($inv);
+            }
+
+    public function sendVipKitsMenu(Player $player) {
+        $nbt = new CompoundTag("", [new StringTag("id", Tile::CHEST), new StringTag("CustomName", "§l§6VIP §aKits"), new IntTag("x", floor($player->x) - 2), new IntTag("y", floor($player->y) - 2), new IntTag("z", floor($player->z) - 1) ]);
+        /** @var Chest $tile */
+        $tile = Tile::createTile("Chest", $player->getLevel(), $nbt);
+        $block = Block::get(Block::CHEST);
+        $block->x = (int)$tile->x;
+        $block->y = (int)$tile->y;
+        $block->z = (int)$tile->z;
+        $block->level = $tile->getLevel();
+        $block->level->sendBlocks([$player], [$block]);
+        if ($tile instanceof Chest) {
+            // Items
+            $inv = $tile->getInventory();
+            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§eTest1")->setLore(["§bCost:$150"]));
+            $inv->setItem(1,Item::get(288)->setCustomName("§eTest2")->setLore(["§bCost:$200"]));
+        }
+        $player->addWindow($inv);
+            }
+    public function sendMvpKitsMenu(Player $player) {
+        $nbt = new CompoundTag("", [new StringTag("id", Tile::CHEST), new StringTag("CustomName", "§l§bMVP §aKits"), new IntTag("x", floor($player->x) - 2), new IntTag("y", floor($player->y) - 2), new IntTag("z", floor($player->z) - 1) ]);
+        /** @var Chest $tile */
+        $tile = Tile::createTile("Chest", $player->getLevel(), $nbt);
+        $block = Block::get(Block::CHEST);
+        $block->x = (int)$tile->x;
+        $block->y = (int)$tile->y;
+        $block->z = (int)$tile->z;
+        $block->level = $tile->getLevel();
+        $block->level->sendBlocks([$player], [$block]);
+        if ($tile instanceof Chest) {
+            // Items
+            $inv = $tile->getInventory();
+            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§aTest1")->setLore(["§bCost:$150"]));
+            $inv->setItem(1,Item::get(288)->setCustomName("§aTest2")->setLore(["§bCost:$200"]));
+        }
+        $player->addWindow($inv);
+            }
+
+    public function onInventoryTransaction(InventoryTransactionEvent $ev) {
+        $action = $ev->getTransaction()->getActions();
+       $player = $ev->getTransaction()->getSource();
+       $item = null;
+        foreach ($action as $inventoryAction) {
+            $item = $inventoryAction->getTargetItem();
+            //vip kits
+            if ($item->getName() == "§6VIP §eKits") {
+           $player->getInventory()->clearAll();
+           $this->sendVipKitsMenu($player);
+           }
+            //mvp kits
+            if ($item->getName() == "§bMVP §eKits") {
+           $player->getInventory()->clearAll();
+           $this->sendMvpKitsMenu($player);
+           }
+        }
+     }
+   }
