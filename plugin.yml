@@ -1,5 +1,5 @@
 name: KitGUI
-authors: [ignatiosg#1030, Saxavlax001#6453](discord)
+authors: [ignatiosg#1030, Saxavlax001#6453]
 api: [3.0.0, 4.0.0]
 main: kitgui\Main
 
