@@ -101,8 +101,8 @@ class KitGUI extends Command implements Listener {
         if ($tile instanceof Chest) {
             // Items
             $inv = $tile->getInventory();
-            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§eTest1")->setLore(["§bCost:$150"]));
-            $inv->setItem(1,Item::get(288)->setCustomName("§eTest2")->setLore(["§bCost:$200"]));
+            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§eTest1")->setLore(["§bClick"]));
+            $inv->setItem(1,Item::get(288)->setCustomName("§eTest2")->setLore(["§bClick"]));
         }
         $player->addWindow($inv);
             }
@@ -119,8 +119,8 @@ class KitGUI extends Command implements Listener {
         if ($tile instanceof Chest) {
             // Items
             $inv = $tile->getInventory();
-            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§aTest1")->setLore(["§bCost:$150"]));
-            $inv->setItem(1,Item::get(288)->setCustomName("§aTest2")->setLore(["§bCost:$200"]));
+            $inv->setItem(0, Item::get(Item::BOW)->setCustomName("§aTest1")->setLore(["§bclick"]));
+            $inv->setItem(1,Item::get(288)->setCustomName("§aTest2")->setLore(["§bclick"]));
         }
         $player->addWindow($inv);
             }
@@ -140,7 +140,22 @@ class KitGUI extends Command implements Listener {
             if ($item->getName() == "§bMVP §eKits") {
            $player->getInventory()->clearAll();
            $this->sendMvpKitsMenu($player);
+           } 
+            // vip test1 kit
+            if ($item->getName() == "§eTest1") {
+           $player->getInventory()->clearAll(); 
+           $player->getInventory()->addItem(Item::get(Item::IRON_SWORD)->setCustomName("§eTest1 Sword"));
+           $player->getInventory()->addItem(Item::get(Item::IRON_HELMET)->setCustomName("§eTest1 Helmet ")); 
+           $player->getInventory()->addItem(Item::get(Item::IRON_CHESTPLATE)->setCustomName("§eTest1 Chestplate"));
+           $player->getInventory()->addItem(Item::get(Item::IRON_LEGGINS)->setCustomName("§eTest1 Leggins"));
+           $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§eTest1 Boots"));
+           $this->closeInventory($player); 
            }
         }
      }
    }
+
+    public function onClose(Player $who){
+   $this->closeInventory($who);
+    }
+  }
