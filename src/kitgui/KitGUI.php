@@ -154,8 +154,3 @@ class KitGUI extends Command implements Listener {
         }
      }
    }
-
-    public function onClose(Player $who){
-   $this->closeInventory($who);
-    }
-  }
