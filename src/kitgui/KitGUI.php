@@ -143,6 +143,7 @@ class KitGUI extends Command implements Listener {
            } 
             // vip test1 kit
             if ($item->getName() == "§eTest1") {
+      if($player->hasPermission("kitgui.vip.test1") == true) {
            $player->getInventory()->clearAll(); 
            $player->getInventory()->addItem(Item::get(Item::IRON_SWORD)->setCustomName("§eTest1 Sword"));
            $player->getInventory()->addItem(Item::get(Item::IRON_HELMET)->setCustomName("§eTest1 Helmet ")); 
@@ -151,9 +152,16 @@ class KitGUI extends Command implements Listener {
            $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§eTest1 Boots"));
            $player->sendMessage("You succesfuly claimed your kit!");
            $this->closeInventory($player); 
-           } 
+           }
+      if($player->hasPermission("kitgui.vip.test1") == false) {
+           $this->closeInventory($player); 
+           $player->sendMessage("§cYou don't have permission to use this kit!");
+      $ev->setCancelled();
+     }
+   }
             //vip Test2 kit
             if ($item->getName() == "§eTest2") {
+      if($player->hasPermission("kitgui.vip.test2") == true) {
            $player->getInventory()->clearAll(); 
            $player->getInventory()->addItem(Item::get(Item::DIAMOND_SWORD)->setCustomName("§eTest2 Sword"));
            $player->getInventory()->addItem(Item::get(Item::DIAMOND_HELMET)->setCustomName("§eTest2 Helmet"));	
@@ -162,9 +170,17 @@ class KitGUI extends Command implements Listener {
 	   $player->getInventory()->addItem(Item::get(Item::DIAMOND_BOOTS)->setCustomName("§eTest2 boots"));	   
            $player->sendMessage("You succesfuly claimed your kit!"); 
            $this->closeInventory($player); 
+
+      if($player->hasPermission("kitgui.vip
+test2") == false) {
+           $this->closeInventory($player); 
+           $player->sendMessage("§cYou don't have permission to use this kit!");
+      $ev->setCancelled();
+     }
            } 
             //mvp Test1 kit
             if ($item->getName() == "§aTest1") {
+      if($player->hasPermission("kitgui.mvp.test1") == true) {
            $player->getInventory()->clearAll(); 
            $player->getInventory()->addItem(Item::get(Item::DIAMOND_SWORD)->setCustomName("§aTest1 Sword"));
            $player->getInventory()->addItem(Item::get(Item::DIAMOND_HELMET)->setCustomName("§aTest1 Helmet"));	
@@ -173,9 +189,16 @@ class KitGUI extends Command implements Listener {
 	   $player->getInventory()->addItem(Item::get(Item::DIAMOND_BOOTS)->setCustomName("§aTest1 boots"));	   
            $player->sendMessage("You succesfuly claimed your kit!"); 
            $this->closeInventory($player); 
+
+      if($player->hasPermission("kitgui.mvp.test1") == false) {
+           $this->closeInventory($player); 
+           $player->sendMessage("§cYou don't have permission to use this kit!");
+      $ev->setCancelled();
+     }
            } 
             //mvp Test2 kit
             if ($item->getName() == "§aTest2") {
+      if($player->hasPermission("kitgui.mvp.test2") == true) {
            $player->getInventory()->clearAll(); 
            $player->getInventory()->addItem(Item::get(Item::IRON_SWORD)->setCustomName("§aTest2 Sword"));
            $player->getInventory()->addItem(Item::get(Item::IRON_HELMET)->setCustomName("§aTest2 Helmet"));	
@@ -184,7 +207,15 @@ class KitGUI extends Command implements Listener {
 	   $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§aTest2 boots"));	   
            $player->sendMessage("You succesfuly claimed your kit!"); 
            $this->closeInventory($player); 
-           }
+      if($player->hasPermission("kitgui.mvp.test2") == false) {
+      $this->closeInventory($player); 
+           $player->sendMessage("§cYou don't have permission to use this kit!");
+      $ev->setCancelled();
+                 }
+               }
+            }
+          }
         }
-     }
-   }
+      }
+    }
+  }
