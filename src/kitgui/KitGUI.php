@@ -149,6 +149,40 @@ class KitGUI extends Command implements Listener {
            $player->getInventory()->addItem(Item::get(Item::IRON_CHESTPLATE)->setCustomName("§eTest1 Chestplate"));
            $player->getInventory()->addItem(Item::get(Item::IRON_LEGGINGS)->setCustomName("§eTest1 Leggings"));
            $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§eTest1 Boots"));
+           $player->sendMessage("You succesfuly claimed your kit!");
+           $this->closeInventory($player); 
+           } 
+            //vip Test2 kit
+            if ($item->getName() == "§eTest2") {
+           $player->getInventory()->clearAll(); 
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_SWORD)->setCustomName("§eTest2 Sword"));
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_HELMET)->setCustomName("§eTest2 Helmet"));	
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_CHESTPLATE)->setCustomName("§eTest2 Chestplate"));	
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_LEGGINGS)->setCustomName("§eTest2 Leggings"));
+	   $player->getInventory()->addItem(Item::get(Item::DIAMOND_BOOTS)->setCustomName("§eTest2 boots"));	   
+           $player->sendMessage("You succesfuly claimed your kit!"); 
+           $this->closeInventory($player); 
+           } 
+            //mvp Test1 kit
+            if ($item->getName() == "§aTest1") {
+           $player->getInventory()->clearAll(); 
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_SWORD)->setCustomName("§aTest1 Sword"));
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_HELMET)->setCustomName("§aTest1 Helmet"));	
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_CHESTPLATE)->setCustomName("§aTest1 Chestplate"));	
+           $player->getInventory()->addItem(Item::get(Item::DIAMOND_LEGGINGS)->setCustomName("§aTest1 Leggings"));
+	   $player->getInventory()->addItem(Item::get(Item::DIAMOND_BOOTS)->setCustomName("§aTest1 boots"));	   
+           $player->sendMessage("You succesfuly claimed your kit!"); 
+           $this->closeInventory($player); 
+           } 
+            //mvp Test2 kit
+            if ($item->getName() == "§aTest2") {
+           $player->getInventory()->clearAll(); 
+           $player->getInventory()->addItem(Item::get(Item::IRON_SWORD)->setCustomName("§aTest2 Sword"));
+           $player->getInventory()->addItem(Item::get(Item::IRON_HELMET)->setCustomName("§aTest2 Helmet"));	
+           $player->getInventory()->addItem(Item::get(Item::IRON_CHESTPLATE)->setCustomName("§aTest2 Chestplate"));	
+           $player->getInventory()->addItem(Item::get(Item::IRON_LEGGINGS)->setCustomName("§aTest2 Leggings"));
+	   $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§aTest2 boots"));	   
+           $player->sendMessage("You succesfuly claimed your kit!"); 
            $this->closeInventory($player); 
            }
         }
