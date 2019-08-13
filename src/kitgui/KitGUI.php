@@ -147,7 +147,7 @@ class KitGUI extends Command implements Listener {
            $player->getInventory()->addItem(Item::get(Item::IRON_SWORD)->setCustomName("§eTest1 Sword"));
            $player->getInventory()->addItem(Item::get(Item::IRON_HELMET)->setCustomName("§eTest1 Helmet ")); 
            $player->getInventory()->addItem(Item::get(Item::IRON_CHESTPLATE)->setCustomName("§eTest1 Chestplate"));
-           $player->getInventory()->addItem(Item::get(Item::IRON_LEGGINS)->setCustomName("§eTest1 Leggings"));
+           $player->getInventory()->addItem(Item::get(Item::IRON_LEGGINGS)->setCustomName("§eTest1 Leggings"));
            $player->getInventory()->addItem(Item::get(Item::IRON_BOOTS)->setCustomName("§eTest1 Boots"));
            $this->closeInventory($player); 
            }
